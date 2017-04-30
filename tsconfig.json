@@ -1,12 +1,25 @@
 {
   "compilerOptions": {
-    "module": "none",
-    "moduleResolution": "node",
-    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "allowSyntheticDefaultImports": false,
+    "allowUnreachableCode": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "preserveConstEnums": true,
+    "target": "es2017",
     "sourceMap": false,
+    "pretty": true,
     "noEmitOnError": true
   },
   "exclude": [
     "node_modules"
+  ],
+  "typeroots": [
+    "node_modules/@types"
   ]
 }

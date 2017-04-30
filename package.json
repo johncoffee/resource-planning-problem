@@ -1,0 +1,24 @@
+{
+  "name": "knapsack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "knapsack.js",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "console.table": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johncoffee/resource-planning-problem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johncoffee/resource-planning-problem/issues"
+  },
+  "homepage": "https://github.com/johncoffee/resource-planning-problem#readme"
+}

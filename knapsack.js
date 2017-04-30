@@ -1,45 +1,19 @@
-const tasks = [
-    {
-        id: "heat",
-        weight: 2,
-        space: 2,
-    },
-    {
-        id: "kitchen",
-        weight: 1,
-        space: 2,
-    },
-    {
-        id: "living room",
-        weight: 3,
-        space: 2,
-    },
-];
-const timeframe = [
-    [tasks[2], tasks[0]],
-    [tasks[2], tasks[1]],
-    [tasks[1], tasks[0]],
-    [tasks[0], tasks[1], tasks[2]],
-];
-const selected = run(4, [...tasks]);
-console.log("total weight", selected[0].reduce((prev, current) => prev + current.weight, 0), " of ");
-function run(space, tasks) {
-    const sortedByWeight = tasks.sort((a, b) => {
-        const aVal = a.weight / a.space;
-        const bVal = b.weight / b.space;
-        return aVal < bVal;
-    });
-    const selected = [];
-    const rest = [];
-    for (let i = 0; i < sortedByWeight.length; i++) {
-        const task = sortedByWeight[i];
-        if (space - task.space >= 0) {
-            space -= task.space;
-            selected.push(task);
-        }
-        else {
-            rest.push(task);
-        }
-    }
-    return [selected, rest, space];
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const chalk = require("chalk");
+const data_1 = require("./data");
+const table = require('console.table');
+const dayForecast = [0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 4, 5, 6, 6, 7, 5, 4, 4, 3, 2, 1, 0, 0, 0];
+const weekForecast = [10, 20, 10, 30, 30, 40, 20];
+weekForecast.forEach(daySpace => {
+    const { selected, rest, sortedByWeight } = data_1.run(daySpace, [...data_1.tasks]);
+    console.log(JSON.stringify(sortedByWeight.map(item => item.id)));
+    console.log(chalk.green(JSON.stringify(selected.map(item => item.id))));
+    console.log(chalk.red(JSON.stringify(rest.map(item => item.id))));
+    console.log("----------");
+    // console.log(chalk.green("Included"))
+    // console.table(selected)
+    // console.log(chalk.red("Excluded"))
+    // rest.length ? console.table(rest) : console.log("[]")
+    console.log(chalk.blue(new Array(100).fill('-').join(''))); // divider
+});
